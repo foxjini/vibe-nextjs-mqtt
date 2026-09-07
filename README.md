@@ -119,3 +119,18 @@ npm run dev
 1. Chrome 브라우저에서 [http://localhost:3000](http://localhost:3000) 접속
 2. 상단 헤더 우측 **`[오디오 켜기 (클릭)]`** 버튼 클릭 (음성 활성화)
 3. **`[설정]`** 버튼 클릭 후 원격 브로커 PC의 IP를 입력하고 **`[저장 및 재연결]`**
+
+---
+
+## 🤖 ESP8266 마이크로컨트롤러 연동 예제
+
+ESP8266(NodeMCU, D1 mini 등) 보드에서 Wi-Fi를 통해 윈도우 PC의 Mosquitto 브로커(`1883` 포트)로 직접 교통 메시지를 전송하는 아두이노 스케치 코드가 포함되어 있습니다.
+
+- **아두이노 소스 코드**: [`esp8266/esp8266_traffic_mqtt/esp8266_traffic_mqtt.ino`](./esp8266/esp8266_traffic_mqtt/esp8266_traffic_mqtt.ino)
+- **상세 실습 가이드**: [`esp8266/README.md`](./esp8266/README.md)
+
+### 빠른 연동 테스트 방법:
+1. 아두이노 IDE에서 `PubSubClient` 라이브러리를 설치합니다.
+2. 스케치 상단의 `ssid`, `password`, `mqtt_server`(윈도우 PC IP)를 입력하고 업로드합니다.
+3. 시리얼 모니터(115200 bps)에서 `1`, `2`, `3`, `4`, `5` 번호를 전송하거나 보드의 **FLASH 버튼**을 누르면 실시간으로 메시지가 전송되어 웹 대시보드에서 음성이 재생됩니다.
+
